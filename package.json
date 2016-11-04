@@ -1,6 +1,6 @@
 {
   "name": "awync-events",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Awync EventEmitter",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/tlghn/awync-events#readme",
   "dependencies": {
-    "awync": "^1.1.1"
+    "awync": "^1.1.2"
   }
 }
