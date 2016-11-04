@@ -1,0 +1,27 @@
+{
+  "name": "awync-events",
+  "version": "1.0.0",
+  "description": "Awync EventEmitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlghn/awync-events.git"
+  },
+  "keywords": [
+    "awync",
+    "events",
+    "eventemitter"
+  ],
+  "author": "Tolgahan Albayrak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tlghn/awync-events/issues"
+  },
+  "homepage": "https://github.com/tlghn/awync-events#readme",
+  "dependencies": {
+    "awync": "^1.1.1"
+  }
+}
