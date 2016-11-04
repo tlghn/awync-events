@@ -1,0 +1,2 @@
+# awync-events
+Awync EventEmitter
