@@ -9,7 +9,7 @@ const awync = require('awync');
 const ee = new EventEmitter();
 
 awync(function*(){
-    var result = ee.when.test();
+    var result = yield ee.when.test();
     console.log(result);
     // output: Easy events
 });
