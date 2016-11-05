@@ -54,13 +54,19 @@ awync(function*(){
     Returns the passed parameters on emit call
     
      **If single argument is passed on emit;**
-        - If that argument is not an Error then it will be yielded without boxing
-        - Otherwise, it will be thrown
+     
+        If that argument is not an Error then it will be yielded without boxing.
+     
+        Otherwise, it will be thrown
     
      **If multiple arguments are passed on emit then**
-        - If first argument is error then it will be thrown and all passed arguments will be stored on firstArgument.args property
-        - If arguments length is 2 and first argument is null or undefined then second argument will be yielded without boxing
-        - Otherwise, all arguments will be yielded as array
+     
+        If first argument is error then it will be thrown and all passed arguments will be stored on firstArgument.args property.
+     
+        If arguments length is 2 and first argument is null or undefined then second argument will be yielded without boxing.
+     
+        Otherwise, all arguments will be yielded as array
+        
         
     ```
         var eventResults = yield emitter.wait.someEvent();
