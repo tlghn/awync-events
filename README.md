@@ -78,17 +78,22 @@ awync(function*(){
     
     ```
         awync(function*(){
-            socket.connect();
-            
-            var eventResults = yield socket.whichever('error', 'connect');
-            
-            // eventResults.name == 'connect'
-            // eventResults.args == []
-
-            // Since the error on first parameter will be thrown,
-            // This lines will be unreachable if 'error' event is emitted.
-            // So, if below code is executed then we will be sure that 'connect' event is emitted.
-            console.log('Connected!');
+            try{
+                socket.connect();
+                
+                var eventResults = yield socket.whichever('error', 'connect');
+                
+                // eventResults.name == 'connect'
+                // eventResults.args == passed arguments by calling emit('connect')
+    
+                // Since the error on first parameter will be thrown,
+                // This lines will be unreachable if 'error' event is emitted.
+                // So, if below code is executed then we will be sure that 'connect' event is emitted.
+                console.log('Connected!');
+            } catch(err){
+                // err.name == 'error'
+                // err.args == passed arguments by calling emit('error')
+            }
         });
     ```
 

@@ -34,6 +34,13 @@ function whichever() {
                 handlers.forEach(item => {
                     this.removeListener(item.name, item.cb);
                 });
+
+                if(args[0] instanceof Error){
+                    args[0].name = name;
+                    args[0].args = args;
+                    return this.emit(eventName, args[0]);
+                }
+                
                 this.emit(eventName, {name, args});
             }
 
