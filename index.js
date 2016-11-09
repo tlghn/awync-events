@@ -10,6 +10,7 @@ const awync = require('awync');
 const WHEN = Symbol('when');
 const WHATEVER = Symbol('when');
 const EMIT = Symbol('emit');
+const EVENT_EMITTER = Symbol('EventEmitter');
 var WHICEVER_COUNT = 0;
 
 
@@ -92,13 +93,25 @@ EventEmitter.prototype.whichever = function () {
 };
 
 EventEmitter.attach = function (target) {
-    if (target && typeof target === 'object') {
-        Object.defineProperties(target, {
-            when: { get: when },
-            whatever: {get: whatever },
-            whichever: {get: whichever }
-        });
+    if(typeof target === 'function'){
+        if(!target.prototype){
+            return;
+        }
+        target = target.prototype;
     }
+
+    if(typeof target !== 'object' || !target || target[EVENT_EMITTER]){
+        return target;
+    }
+
+    target[EVENT_EMITTER] = true;
+
+    Object.defineProperties(target, {
+        when: { get: when },
+        whatever: {get: whatever },
+        whichever: {get: whichever }
+    });
+
     return target;
 };
 
