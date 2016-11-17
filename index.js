@@ -45,8 +45,8 @@ function whichever() {
                 this.emit(eventName, {name, args});
             }
 
-            handlers.forEach(item => this.once(item.name, item.cb));
-            return awync(awync.callback, this.once.bind(this, eventName))();
+            handlers.forEach(item => this.on(item.name, item.cb));
+            return awync(awync.callback, this.on.bind(this, eventName))();
         }.bind(this, 'awync-events-whicever-' + (++WHICEVER_COUNT), args))();
         
     }.bind(this);
